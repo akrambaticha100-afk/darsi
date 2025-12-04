@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-interface Hero47Props {
+interface HeroProps {
   heading?: string;
   subheading?: string;
   description?: string;
@@ -22,7 +22,7 @@ interface Hero47Props {
   };
 }
 
-const Hero47 = ({
+export const Hero = ({
   heading = "Courses",
   subheading = " tailored for optimal and fast learning",
   description = "Finely tuned and tailored courses to maximize learning at blazingly fast speeds adapted to all kind of learners.",
@@ -31,16 +31,12 @@ const Hero47 = ({
       text: "Get Started",
       url: "#",
     },
-    secondary: {
-      text: "Read the docs",
-      url: "#",
-    },
   },
   image = {
     src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-dark-7-tall.svg",
     alt: "Placeholder",
   },
-}: Hero47Props) => {
+}: HeroProps) => {
   return (
     <section className="bg-background py-20 lg:py-32">
       <div className="container flex flex-col items-center gap-10 lg:my-0 lg:flex-row">
@@ -88,5 +84,3 @@ const Hero47 = ({
     </section>
   );
 };
-
-export { Hero47 };
