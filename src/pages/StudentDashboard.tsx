@@ -3,15 +3,17 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { BookOpen } from "lucide-react"
-import { useNavigate } from "react-router-dom" // <--- IMPORT THIS
+import { useNavigate } from "react-router-dom"
 
 export default function StudentDashboard() {
-  const navigate = useNavigate() // <--- ACTIVATE NAVIGATION
+  const navigate = useNavigate()
 
+  // UPDATED LIST TO MATCH YOUR FRIEND'S DATA
   const myCourses = [
-    { id: 1, title: "Introduction à React", progress: 0, totalLessons: 1, completedLessons: 0 },
-    { id: 2, title: "Maîtriser Node.js", progress: 0, totalLessons: 1, completedLessons: 0 },
-    { id: 3, title: "Les bases de TypeScript", progress: 0, totalLessons: 1, completedLessons: 0 },
+    { id: 1, title: "Introduction à React", progress: 75, totalLessons: 12, completedLessons: 9 },
+    { id: 2, title: "Maîtriser Shadcn UI", progress: 30, totalLessons: 8, completedLessons: 2 },
+    // Changed from "TypeScript" to "Node.js" to match the Courses page
+    { id: 3, title: "Node.js & Express", progress: 0, totalLessons: 15, completedLessons: 0 },
   ]
 
   return (
@@ -27,7 +29,11 @@ export default function StudentDashboard() {
             <CardHeader>
               <div className="flex justify-between items-start">
                 <CardTitle className="text-xl">{course.title}</CardTitle>
-                <Badge variant="outline">Non commencé</Badge>
+                {course.progress === 0 ? (
+                  <Badge variant="outline">Non commencé</Badge>
+                ) : (
+                  <Badge variant="secondary">En cours</Badge>
+                )}
               </div>
               <CardDescription>
                 {course.completedLessons} / {course.totalLessons} leçons terminées
@@ -43,13 +49,9 @@ export default function StudentDashboard() {
               </div>
             </CardContent>
             <CardFooter>
-              {/* ADD ONCLICK HERE */}
-              <Button 
-                className="w-full gap-2" 
-                onClick={() => navigate("/lesson")}
-              >
+              <Button className="w-full gap-2" onClick={() => navigate("/lesson")}>
                 <BookOpen className="h-4 w-4" />
-                Commencer
+                {course.progress === 0 ? "Commencer" : "Continuer"}
               </Button>
             </CardFooter>
           </Card>

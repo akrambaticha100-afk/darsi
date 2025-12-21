@@ -4,10 +4,12 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import { Plus, Pencil, Trash2, Users } from "lucide-react"
 
 export default function TeacherDashboard() {
+  // UPDATED LIST
   const managedCourses = [
-    { id: 1, title: "Introduction à React", students: 124, status: "Publié", lastUpdated: "2024-03-10" },
-    { id: 2, title: "Maîtriser Node.js", students: 85, status: "Publié", lastUpdated: "2024-03-15" },
-    { id: 3, title: "Algorithmes Avancés", students: 0, status: "Brouillon", lastUpdated: "2024-03-20" },
+    { id: 1, title: "Introduction à React", students: 124, status: "Publié" },
+    { id: 2, title: "Maîtriser Shadcn UI", students: 85, status: "Publié" },
+    // Changed to match the official list
+    { id: 3, title: "Node.js & Express", students: 0, status: "Brouillon" },
   ]
 
   return (
